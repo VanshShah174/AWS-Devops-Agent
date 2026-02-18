@@ -1,0 +1,21 @@
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Project Configuration
+project_name = "devops-agent-demo"
+environment  = "dev"
+
+# Network Configuration (COST OPTIMIZED - Single AZ)
+vpc_cidr           = "10.0.0.0/16"
+availability_zones = ["us-east-1a"]  # Single AZ saves ~$32/month on NAT Gateway
+
+# ECS Configuration (COST OPTIMIZED - Single Task)
+container_port   = 3000
+container_cpu    = 256
+container_memory = 512
+desired_count    = 1  # Single task saves ~$15/month
+
+# GitHub Integration
+github_repo = "VanshShah174/AWS-Devops-Agent"
+
+# Estimated Monthly Cost: ~$35 (vs $120 with 2 AZs and 2 tasks)
