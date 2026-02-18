@@ -1,0 +1,59 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+*.tfvars.json
+terraform/*.zip
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker
+.dockerignore
+
+# AWS
+.aws/
+
+# Misc
+*.bak
+*.tmp
+.cache/
+
+# Environment-specific files
+agent-space-id.txt
+aws-config.json
+devopsagent.json
+
+# Temporary documentation
+TEST_RESULTS.md
+SETUP_COMPLETE.md
+PLAYBOOK_IMPLEMENTATION.md
+
+# IDE specific
+.qodo/
