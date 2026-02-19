@@ -47,3 +47,13 @@ output "task_role_arn" {
   description = "ECS task role ARN"
   value       = aws_iam_role.ecs_task.arn
 }
+
+output "ecr_repository_name" {
+  description = "ECR repository name"
+  value       = aws_ecr_repository.app.name
+}
+
+output "aws_region" {
+  description = "AWS region"
+  value       = var.aws_region
+}
