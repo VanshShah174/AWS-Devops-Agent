@@ -14,6 +14,15 @@ resource "aws_lb" "main" {
   }
 }
 
+# Optionally associate an existing WAFv2 Web ACL with the ALB.  If the
+# variable is an empty string the resource count becomes 0 and nothing is
+# created.
+resource "aws_wafv2_web_acl_association" "alb" {
+  count        = var.waf_web_acl_arn != "" ? 1 : 0
+  resource_arn = aws_lb.main.arn
+  web_acl_arn  = var.waf_web_acl_arn
+}
+
 # Target Group
 resource "aws_lb_target_group" "app" {
   name        = "${local.name_prefix}-tg"
@@ -39,11 +48,31 @@ resource "aws_lb_target_group" "app" {
   }
 }
 
-# ALB Listener
+# ALB Listener - HTTP port simply redirects to HTTPS (if cert provided)
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.main.arn
   port              = "80"
   protocol          = "HTTP"
+
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
+
+# HTTPS listener (conditional on having a certificate ARN)
+resource "aws_lb_listener" "https" {
+  count             = var.certificate_arn != "" ? 1 : 0
+  load_balancer_arn = aws_lb.main.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = var.certificate_arn
 
   default_action {
     type             = "forward"

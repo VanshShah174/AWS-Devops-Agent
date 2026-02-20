@@ -57,3 +57,20 @@ variable "github_repo" {
   type        = string
   default     = "VanshShah174/AWS-Devops-Agent"
 }
+
+# ARN of an existing ACM certificate for the ALB. When empty the
+# listener remains HTTP-only (useful for local/dev).  You can request a
+# certificate in the console and paste the ARN here or through env var.
+variable "certificate_arn" {
+  description = "ACM certificate ARN for HTTPS listener (optional)"
+  type        = string
+  default     = ""
+}
+
+# If you already have a WAFv2 WebACL you can supply its ARN to attach
+# it to the ALB.  Leave empty to skip.
+variable "waf_web_acl_arn" {
+  description = "WAF Web ACL ARN to associate with the ALB (optional)"
+  type        = string
+  default     = ""
+}

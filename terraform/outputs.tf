@@ -9,10 +9,14 @@ output "alb_dns_name" {
 }
 
 output "alb_url" {
-  description = "Application URL"
+  description = "Application URL (HTTP)"
   value       = "http://${aws_lb.main.dns_name}"
 }
 
+output "alb_https_url" {
+  description = "Application URL (HTTPS, empty if no cert)"
+  value       = var.certificate_arn != "" ? "https://${aws_lb.main.dns_name}" : ""
+}
 output "ecs_cluster_name" {
   description = "ECS cluster name"
   value       = aws_ecs_cluster.main.name

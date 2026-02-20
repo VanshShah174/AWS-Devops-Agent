@@ -57,3 +57,5 @@ PLAYBOOK_IMPLEMENTATION.md
 
 # IDE specific
 .qodo/
+# Keep FAQ locally only
+docs/FAQ.md
