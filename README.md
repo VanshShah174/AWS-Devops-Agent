@@ -5,9 +5,7 @@
 [![AWS](https://img.shields.io/badge/AWS-ECS%20%7C%20Fargate-orange.svg)](https://aws.amazon.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 
-> **A production-ready demonstration of AWS DevOps Agent's AI-powered incident investigation capabilities in a containerized ECS environment.**
-
-Transform your incident response from **45 minutes of manual investigation** to **2 minutes of automated AI analysis**. This project showcases a complete self-healing infrastructure with automated remediation, comprehensive monitoring, and intelligent root cause analysis.
+> **Demonstration of AWS DevOps Agent's AI-powered incident investigation capabilities in a containerized ECS environment. Transform incident response from 45 minutes of manual investigation to 2 minutes of automated AI analysis. Complete self-healing infrastructure with automated remediation, comprehensive monitoring, and intelligent root cause analysis.**
 
 ---
 
