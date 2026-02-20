@@ -26,6 +26,8 @@ This is a **complete, enterprise-grade DevOps automation platform** that shows h
 
 ## 🏗️ Architecture Overview
 
+![AWS DevOps Agent Architecture](aws_devops_agent.png)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         GitHub Repository                            │
